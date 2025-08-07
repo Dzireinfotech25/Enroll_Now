@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Payment - Dzire Infotech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enroll in Python or Tally course online via Dzire Infotech. Simple form with payment gateway.">
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8fbff, #e0f7fa);
+    }
+
+    /* Header */
+    .header {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .header img {
+      width: 60px;
+      vertical-align: middle;
+    }
+
+    .header h1 {
+      display: inline;
+      font-size: 28px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+    }
+
+    /* Form container */
+    .container {
+      max-width: 500px;
+      background-color: white;
+      padding: 30px;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+      color: #333;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer a {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation dots */
+    .dot-container {
+      text-align: center;
+      margin-top: -20px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      margin: 5px 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #00796b;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="logo.png" alt="Dzire Logo">
+    <h1>Dzire Infotech</h1>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <img class="slides" src="https://www.dzireinfotech.co.in/assets/images/slider/dzire-infotech-31012025122010.webp" alt="Slide 1">
+    <img class="slides" src="https://www.dzireinfotech.co.in/assets/images/slider/dzire-infotech-31012025122937.webp" alt="Slide 2">
+    <img class="slides" src="https://www.syinfotechsolutions.com/img/slider/HD_Technologies_Banner3.jpg" alt="Slide 3">
+  </div>
+  <div class="dot-container">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
+
+  <!-- Course Selection Form -->
+  <div class="container">
+    <h2>Join Online Course</h2>
+    <form id="courseForm">
+      <label for="course">Select Your Course:</label>
+      <select id="course" name="course" required>
+        <option value="">-- Choose a course --</option>
+        <option value="tally">Tally Prime Course</option>
+        <option value="python">Python Programming Course</option>
+      </select>
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Dzire Infotech | Visit us at 
+    <a href="https://www.dzireinfotech.co.in" target="_blank">www.dzireinfotech.co.in</a>
+  </div>
+
+  <!-- JavaScript for Form + Slideshow -->
+  <script>
+    // Redirect logic
+    document.getElementById("courseForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const course = document.getElementById("course").value;
+
+      if (course === "tally") {
+        window.location.href = "https://rzp.io/l/tally-payment-link"; // Replace this link
+      } else if (course === "python") {
+        window.location.href = "https://rzp.io/l/python-payment-link"; // Replace this link
+      } else {
+        alert("Please select a course to proceed.");
+      }
+    });
+
+    // Slideshow logic
+    let slideIndex = 0;
+    const showSlides = () => {
+      let slides = document.getElementsByClassName("slides");
+      let dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    };
+    showSlides();
+  </script>
+</body>
+</html>
